@@ -94,15 +94,10 @@ run_one_year <- function(
   stocking <- get_stocking_data(year = year)
   
   # Build watershed components ----
-  # West Branch Penobscot River
   wpn <- make_WPN(stocking, prod, sat)
-  # East Branch Penobscot River
   epn <- make_EPN(stocking, prod, sat)
-  # Mattawamkeag River
   matt <- make_Matt(stocking, prod, sat)
-  # Piscataquis River
   pisc <- make_PISC(stocking, prod, sat)
-  # Penobscot River
   pn <- make_PN(stocking, prod, sat)
   
   # Downstream migration hazards ----
@@ -112,6 +107,19 @@ run_one_year <- function(
   pisc_mat <- make_PISC_hazards(pisc, km_surv, downstream_passage) 
   pn_mat <- make_PN_hazards(pn, km_surv, downstream_passage) 
 
-    
+  # Downstream migration module ----
+  # Upper watershed
+  wpn_out <- run_downstream_migration(wpn_mat)
+  epn_out <- run_downstream_migration(epn_mat)
+  matt_out <- run_downstream_migration(matt_mat)
+  pisc_out <- run_downstream_migration(pisc_mat)
+  
+  # Mainstem Penobscot receives upper watershed
+  
+  
+  pn_out <- run_downstream_migration(pn_mat)
+  
+  
+  
 }
 
