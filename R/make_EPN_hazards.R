@@ -26,7 +26,7 @@ make_EPN_hazards <- function(epn, km_surv, downstream_passage){
 
   epn$hazard[grep("Dam", epn$huc_collection_segment_or_damname)] <- downstream_passage[8]
   
-  epn$harzard[is.na(epn$hazard)] <- 1
+  epn$hazard[is.na(epn$hazard)] <- 1
 
   return(epn)
   

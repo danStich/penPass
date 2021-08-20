@@ -25,7 +25,7 @@ make_WPN_hazards <- function(wpn, km_surv, downstream_passage){
 
   wpn$hazard[grep("Dam", wpn$huc_collection_segment_or_damname)] <- downstream_passage[1:7]
 
-  wpn$harzard[is.na(wpn$hazard)] <- 1
+  wpn$hazard[is.na(wpn$hazard)] <- 1
   
   return(wpn)
   

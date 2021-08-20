@@ -22,11 +22,12 @@
 make_PN_hazards <- function(pn, km_surv, downstream_passage){
   
   pn$hazard[grep("1M", pn$huc_collection_segment_or_damname)] <- km_surv
+  pn$hazard[grep("1S", pn$huc_collection_segment_or_damname)] <- km_surv
 
   pn$hazard[grep("Dam", pn$huc_collection_segment_or_damname)][c(1, 3:10)] <- 
     downstream_passage[13:21]
   
-  pn$harzard[is.na(pn$hazard)] <- 1
+  pn$hazard[is.na(pn$hazard)] <- 1
   
   return(pn)
   

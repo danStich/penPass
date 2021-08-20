@@ -24,7 +24,7 @@ make_Matt_hazards <- function(matt, km_surv, downstream_passage){
 
   matt$hazard[grep("1.3", matt$huc_collection_segment_or_damname)] <- km_surv
   
-  matt$harzard[is.na(matt$hazard)] <- 1
+  matt$hazard[is.na(matt$hazard)] <- 1
 
   return(matt)
   

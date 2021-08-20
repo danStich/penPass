@@ -25,7 +25,7 @@ make_PISC_hazards <- function(pisc, km_surv, downstream_passage){
 
   pisc$hazard[grep("Dam", pisc$huc_collection_segment_or_damname)] <- downstream_passage[9:12]
 
-  pisc$harzard[is.na(pisc$hazard)] <- 1
+  pisc$harzad[is.na(pisc$hazard)] <- 1
     
   return(pisc)
   
