@@ -84,7 +84,7 @@ run_one_year <- function(
   
   # Replace any NA values with the flow-correlated survival values
   downstream_passage[is.na(downstream_passage)] <- dam_survival[is.na(downstream_passage)]
-  names(downstream_passage) <- NULL
+  # names(downstream_passage) <- NULL
   
   # Stillwater use module ----
   p_stillwater <- get_stillwater_use(
@@ -105,5 +105,13 @@ run_one_year <- function(
   # Penobscot River
   pn <- make_PN(stocking, prod, sat)
   
+  # Downstream migration hazards ----
+  wpn_mat <- make_WPN_hazards(wpn, km_surv, downstream_passage) 
+  epn_mat <- make_EPN_hazards(epn, km_surv, downstream_passage) 
+  matt_mat <- make_Matt_hazards(matt, km_surv, downstream_passage) 
+  pisc_mat <- make_PISC_hazards(pisc, km_surv, downstream_passage) 
+  pn_mat <- make_PN_hazards(pn, km_surv, downstream_passage) 
+
+    
 }
 

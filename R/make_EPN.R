@@ -36,7 +36,7 @@ make_EPN <- function(stocking, prod, sat){
   epn$n_smolts[2] <- stocking$n_stocked[3]
   epn$n_smolts[33] <- stocking$n_stocked[2]
   
-  return(wpn)
+  return(epn)
   
 }
 
