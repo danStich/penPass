@@ -1,4 +1,4 @@
-Package: pennPass
+Package: penPass
 Type: Package
 Title: R package for Atlantic salmon PenPass model
 Version: 0.1.0
@@ -8,4 +8,6 @@ Description: Hosts code and data for running the Atlantic salmon PenPass model
 Depends: R (>= 3.5.0)
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
+Imports: EnvStats, dplyr
 LazyData: true
+RoxygenNote: 7.1.1
