@@ -1,38 +1,14 @@
-#' @title Get dam-specific survival rates
+#' @title Get annual flows
 #' 
-#' @description Get correlated dam-specific downstream survival rates for 
-#' smolts at each dam from built-in `downstream_` datasets or default values
-#' based on triangular distribution. Values based on Amaral et al. (2012) and 
-#' sampled following Nieland et al. (2013, 2015) and Nieland and Sheehan (2020),
-#' or sampled using `EnvStats::rtri()` for other dams based on Stevens et al. 
-#' (2019).
+#' @description Simulate correlated annual flows at USGS gage stations 
+#' in the Penobscot River watershed based on cumulative probability 
+#' distribution used by Stevens et al. (2019).
 #' 
-#' @param new_or_old A character string indicating whether to use `"new"` 
-#' (Amaral et al. 2012, Nieland and Sheehan 2020) or `"old"` (Amaral et al. 2012, 
-#' Nieland et al. 2020) flow-correlated probabilities of p_stillwater as well 
-#' as flow-correlated survival at `milford`, `orono`, and `stillwater` dams.
+#' @param year Year of simulation
 #' 
-#' @return A vector with dam passage rates 
+#' @return A vector with discharge estimates drawn from a cdf 
 #' 
 #' @references
-#' Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
-#' estimates at mainstem hydroelectric projects on the Penobscot River. 
-#' Phase 3 Final Report. Alden Research Laboratory, Inc., Holden, MA.
-#' 
-#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
-#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
-#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
-#' Hole, MA.
-#' 
-#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
-#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
-#' Maine. ICES Journal of Marine Science 72:2423–2437. 
-#' 
-#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
-#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
-#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
-#' 13-09, Woods Hole, MA.
-#' 
 #' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
 #' stocking practices on an endangered Atlantic salmon (Salmo salar) 
 #' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
@@ -42,8 +18,7 @@
 get_annual_flows <- function(year = 2020){
   
     # Flow for year
-    flows <- penPass::flow_ranks %>% 
-      filter(Year == year)
+    flows <- penPass::flow_ranks[penPass::flow_ranks$Year == year, ]
   
     # Quantile for iteration/year
     quant <- sample(unique(flows$cum_prob), 1, replace = TRUE)
@@ -51,7 +26,6 @@ get_annual_flows <- function(year = 2020){
     # Single samples for shared gages
     samp_01031500 <- sample(flows[flows$GageID == 01031500, 6], 1)
     samp_01034500 <- sample(flows[flows$GageID == 01034500, 6], 1)
-    
     
     # Flows by dam based on Gage ID in Parameters worksheet
     annual_flows <- c(

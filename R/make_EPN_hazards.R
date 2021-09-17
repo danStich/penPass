@@ -4,7 +4,7 @@
 #' survival hazards for a given `year` in the East Branch Penobscot River from 
 #' Stevens et al. (2019).
 #' 
-#' @param wpn A dataframe matching output of \code{link{make_EPN}}.
+#' @param epn A dataframe matching output of \code{link{make_EPN}}.
 #' 
 #' @param km_surv Survival per kilometer for free-flowing reaches
 #' 

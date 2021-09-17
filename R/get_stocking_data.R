@@ -19,10 +19,9 @@
 #' 
 get_stocking_data <- function(year){
   
-  stocks <- penPass::stocking_data |>
-    dplyr::filter(Year == year)
+  stocks <- penPass::stocking_data[penPass::stocking_data$Year == year, ]
       
-  stocked_smolts <- merge(distance_traveled, stocks, by = "site_code", all.x = TRUE)
+  stocked_smolts <- merge(penPass::distance_traveled, stocks, by = "site_code", all.x = TRUE)
   stocked_smolts$n_stocked[is.na(stocked_smolts$n_stocked)] <- 0
   
   stocked_smolts <- dplyr::select(stocked_smolts, c("site_code", "sub_basin",

@@ -2,17 +2,17 @@
 % Please edit documentation in R/make_PN_hazards.R
 \name{make_PN_hazards}
 \alias{make_PN_hazards}
-\title{Create survival hazards in mainstem Penobscot River}
+\title{Create survival hazards in lower mainstem Penobscot River}
 \usage{
 make_PN_hazards(pn, km_surv, downstream_passage)
 }
 \arguments{
+\item{pn}{A dataframe matching output of \code{link{make_PN}}.}
+
 \item{km_surv}{Survival per kilometer for free-flowing reaches}
 
 \item{downstream_passage}{A vector of dam passage survival probabilities 
 matching the `downstream` argument in \code{\link{run_one_year}}}
-
-\item{wpn}{A dataframe matching output of \code{link{make_PN}}.}
 }
 \description{
 Function used to create natural survival and dam passage 

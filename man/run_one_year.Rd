@@ -22,10 +22,22 @@ run_one_year(
 \item{downstream}{Downstream dam passage survival rates for smolts}
 
 \item{km_surv}{Natural downstream survival of smolts per kilometer}
+
+\item{prod}{Habitat productivity in smolts produced per 100 m2 of
+wetted habitat area (Stevens et al. 2019).}
+
+\item{sat}{Habitat saturation for wild fish as the proportion of 
+habitat filled}
 }
 \description{
 Function used to simulate downstream migration in a single
 year for available timeseries (1970 - 2020). A wrapper for the `sample()` function for resampling the empirical 
 cumulative distribution function included in the \code{\link{mort_per_km}}
 data set.
+}
+\references{
+Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+stocking practices on an endangered Atlantic salmon (Salmo salar) 
+population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+and Aquatic Sciences 76:1795-1807.
 }

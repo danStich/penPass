@@ -5,7 +5,7 @@
 \alias{stocking_data}
 \title{Stocking data for Penobscot River watershed}
 \format{
-A dataframe with 1239 observations of 3 variables
+A dataframe with 388 observations of 3 variables
 \describe{
   \code{Year } Year of stocking \cr \cr
   \code{site_code } Site code corresponding to `stocking_site` in `distance_traveled`
@@ -13,8 +13,6 @@ A dataframe with 1239 observations of 3 variables
 }
 }
 \source{
-
-
 Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
 stocking practices on an endangered Atlantic salmon (Salmo salar) 
 population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries

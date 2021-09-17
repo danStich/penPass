@@ -7,8 +7,10 @@
 get_dam_passage(year = 2020, flow)
 }
 \arguments{
+\item{year}{Year of simulation}
+
 \item{flow}{A numeric vector of length 21 containing flow values (cfs) 
-corresponding to dams in rows in \code{\link{penPass::flow_ratios}} and
+corresponding to dams in rows in \code{\link{flow_ratios}} and
 the `upstream` argument of \code{\link{run_one_year}}.}
 }
 \value{

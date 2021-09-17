@@ -8,8 +8,10 @@
 #' `EnvStats::rtri()`, or fixed to 1 for other dams based on 
 #' Stevens et al. (2019).
 #' 
+#' @param year Year of simulation
+#' 
 #' @param flow A numeric vector of length 21 containing flow values (cfs) 
-#' corresponding to dams in rows in \code{\link{penPass::flow_ratios}} and
+#' corresponding to dams in rows in \code{\link{flow_ratios}} and
 #' the `upstream` argument of \code{\link{run_one_year}}.
 #' 
 #' @return A vector with dam passage rates 
@@ -62,7 +64,7 @@ get_dam_passage <- function(year = 2020, flow){
       EnvStats::rtri(1, min = 0.50, max = 0.90, mode = 0.80), 
       
       # Guilford
-      rnorm(n = 1, mean = 0.968, sd = 0.007),                 
+      stats::rnorm(n = 1, mean = 0.968, sd = 0.007),                 
       
       # Moosehead
       ifelse(
@@ -81,7 +83,7 @@ get_dam_passage <- function(year = 2020, flow){
       ),
       
       # Howland
-      runif(1, 0.978, 1), 
+      stats::runif(1, 0.978, 1), 
       
       # Mattaceunk
       ifelse(

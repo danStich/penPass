@@ -4,6 +4,12 @@
 #' from the empirical cumulative distribution function used by
 #' Stevens et al. (2019).
 #' 
+#' @param prop_lost_per_km Proportion of fish lost per kilometer
+#' 
+#' @param n Number of values to sample
+#' 
+#' @param prob Sampling probabilities for cdf based on Stevens et al. (2019).
+#' 
 #' @details A wrapper for the `sample()` function for resampling the empirical 
 #' cumulative distribution function included in the \code{\link{mort_per_km}}
 #' data set.
@@ -19,6 +25,12 @@
 #' # Calculate number surviving from 1000 starting individuals
 #' surv <- 1e3 - (1e3 * exp(-morts)) 
 #' hist( surv, breaks = 40 )
+#' 
+#' @references 
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
 #' 
 #' @export
 #' 

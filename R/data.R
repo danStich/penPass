@@ -266,7 +266,7 @@
 #' @description Number of Atlantic salmon smolts stocked in each of 22 sites
 #' by year.
 #' 
-#' @format A dataframe with 1239 observations of 3 variables
+#' @format A dataframe with 388 observations of 3 variables
 #' \describe{
 #'   \code{Year } Year of stocking \cr \cr
 #'   \code{site_code } Site code corresponding to `stocking_site` in `distance_traveled`
@@ -274,10 +274,200 @@
 #' }
 #' 
 #' @source
-#' @source
 #' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
 #' stocking practices on an endangered Atlantic salmon (Salmo salar) 
 #' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
 #' and Aquatic Sciences 76:1795-1807.
 #' 
 "stocking_data"
+
+#' @title Distance traveled within segments
+#' 
+#' @description Distance traveled by Atlantic salmon smolts within 
+#' collection units or segments in the Penobscot River, Maine based
+#' on Stevens et al. (2019).
+#' 
+#' @format A dataframe with 43 observations of 4 variables
+#' \describe{
+#'   \code{sub_basin } Sub-basin within Penobscot River catchment \cr \cr
+#'   \code{stocking_location } Stocking location \cr \cr
+#'   \code{site_code } Code for site/stocking location \cr \cr
+#'   \code{km_traveled } Distance traveled from stocking location to ocean in km \cr \cr
+#' }
+#' 
+#' @source
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
+#' 
+"distance_traveled"
+
+#' @title East Branch Penobscot (EPN) sub-basin
+#' 
+#' @description Dataframe containing sub-basin characteristics for 
+#' collection segments and dam names in the East Branch Penobscot River
+#' (Stevens et al. 2019).
+#' 
+#' @format A dataframe with 33 observations of 6 variables
+#' \describe{
+#'   \code{huc_collection_segment_or_damname } Location within Penobscot River catchment corresponding to the same column in \code{\link{distance_traveled}} \cr \cr
+#'   \code{habitat_unit_code } Habitat unit code(s) or HUCs \cr \cr
+#'   \code{available_habitat_units_or_segment_length } Available habitat units or segment length of collection segment or dam reach \cr \cr
+#'   \code{point_stock_pct_segment } Percent distance into segment length to stock \cr \cr
+#'   \code{saturation } Proportion of wild smolt habitat occupied
+#'   \code{n_smolts } Number of smolts (zero or NA by default)
+#' }
+#' 
+#' @source
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
+#' 
+"EPN"
+
+#' @title West Branch Penobscot (EPN) sub-basin
+#' 
+#' @description Dataframe containing sub-basin characteristics for 
+#' collection segments and dam names in the West Branch Penobscot River
+#' (Stevens et al. 2019).
+#' 
+#' @format A dataframe with 82 observations of 6 variables
+#' \describe{
+#'   \code{huc_collection_segment_or_damname } Location within Penobscot River catchment corresponding to the same column in \code{\link{distance_traveled}} \cr \cr
+#'   \code{habitat_unit_code } Habitat unit code(s) or HUCs \cr \cr
+#'   \code{available_habitat_units_or_segment_length } Available habitat units or segment length of collection segment or dam reach \cr \cr
+#'   \code{point_stock_pct_segment } Percent distance into segment length to stock \cr \cr
+#'   \code{saturation } Proportion of wild smolt habitat occupied
+#'   \code{n_smolts } Number of smolts (zero or NA by default)
+#' }
+#' 
+#' @source
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
+#' 
+"WPN"
+
+#' @title Mattawamkeag River sub-basin
+#' 
+#' @description Dataframe containing sub-basin characteristics for 
+#' collection segments and dam names in the Mattawamkeag River
+#' (Stevens et al. 2019).
+#' 
+#' @format A dataframe with 62 observations of 6 variables
+#' \describe{
+#'   \code{huc_collection_segment_or_damname } Location within Penobscot River catchment corresponding to the same column in \code{\link{distance_traveled}} \cr \cr
+#'   \code{habitat_unit_code } Habitat unit code(s) or HUCs \cr \cr
+#'   \code{available_habitat_units_or_segment_length } Available habitat units or segment length of collection segment or dam reach \cr \cr
+#'   \code{point_stock_pct_segment } Percent distance into segment length to stock \cr \cr
+#'   \code{saturation } Proportion of wild smolt habitat occupied
+#'   \code{n_smolts } Number of smolts (zero or NA by default)
+#' }
+#' 
+#' @source
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
+#' 
+"Matt"
+
+#' @title Piscataquis River sub-basin
+#' 
+#' @description Dataframe containing sub-basin characteristics for 
+#' collection segments and dam names in the Piscataquis River
+#' (Stevens et al. 2019).
+#' 
+#' @format A dataframe with 54 observations of 6 variables
+#' \describe{
+#'   \code{huc_collection_segment_or_damname } Location within Penobscot River catchment corresponding to the same column in \code{\link{distance_traveled}} \cr \cr
+#'   \code{habitat_unit_code } Habitat unit code(s) or HUCs \cr \cr
+#'   \code{available_habitat_units_or_segment_length } Available habitat units or segment length of collection segment or dam reach \cr \cr
+#'   \code{point_stock_pct_segment } Percent distance into segment length to stock \cr \cr
+#'   \code{saturation } Proportion of wild smolt habitat occupied
+#'   \code{n_smolts } Number of smolts (zero or NA by default)
+#' }
+#' 
+#' @source
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
+#' 
+"PISC"
+
+#' @title Penobscot River sub-basin
+#' 
+#' @description Dataframe containing sub-basin characteristics for 
+#' collection segments and dam names in the lower Penobscot River
+#' (Stevens et al. 2019). Inherits argument values from functions used 
+#' on all other sub-basins.
+#' 
+#' @format A dataframe with 125 observations of 6 variables
+#' \describe{
+#'   \code{huc_collection_segment_or_damname } Location within Penobscot River catchment corresponding to the same column in \code{\link{distance_traveled}} \cr \cr
+#'   \code{habitat_unit_code } Habitat unit code(s) or HUCs \cr \cr
+#'   \code{available_habitat_units_or_segment_length } Available habitat units or segment length of collection segment or dam reach \cr \cr
+#'   \code{point_stock_pct_segment } Percent distance into segment length to stock \cr \cr
+#'   \code{saturation } Proportion of wild smolt habitat occupied
+#'   \code{n_smolts } Number of smolts (zero or NA by default)
+#' }
+#' 
+#' @source
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
+#' 
+"PN"
+
+#' @title Cumulative distribution ranks for flows by year
+#' 
+#' @description Cumulative distribution ranks for flows by year at
+#' USGS gage stations in the Penobscot River watershed, Maine, USA.
+#' 
+#' @format A dataframe with 9858 observations of 6 variables
+#' \describe{
+#'   \code{GageID } US Geological Survey gage ID \cr \cr
+#'   \code{Location } Gage location \cr \cr
+#'   \code{Day } Ordinal day of year for measurement \cr \cr
+#'   \code{cum_prob } Cumulative flow probability \cr \cr
+#'   \code{Year } Year of measurement
+#'   \code{flow } Flow measurement
+#' }
+#' 
+#' @source
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
+#' 
+"flow_ranks"
+
+#' @title Cumulative distribution ranks for flows by year
+#' 
+#' @description Cumulative distribution ranks for survival at 
+#' dams in the Penobscot River watershed based on cumulative flow
+#' distribution in \code{\link{flow_ranks}}.
+#' 
+#' @format A dataframe with 17391 observations of 5 variables
+#' \describe{
+#'   \code{GageID } US Geological Survey gage ID \cr \cr
+#'   \code{Location } Gage location \cr \cr
+#'   \code{Day } Ordinal day of year for measurement \cr \cr
+#'   \code{cum_prob } Cumulative flow probability \cr \cr
+#'   \code{Year } Year of measurement
+#'   \code{flow } Flow measurement
+#' }
+#' 
+#' @source
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
+#' 
+"survival_ranks"
+

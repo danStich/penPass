@@ -11,6 +11,18 @@
 #' 
 #' @param km_surv Natural downstream survival of smolts per kilometer
 #' 
+#' @param prod Habitat productivity in smolts produced per 100 m2 of
+#' wetted habitat area (Stevens et al. 2019).
+#' 
+#' @param sat Habitat saturation for wild fish as the proportion of 
+#' habitat filled
+#' 
+#' @references 
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
+#' 
 #' @export
 #' 
 run_one_year <- function(
@@ -62,7 +74,7 @@ run_one_year <- function(
   
   # Natural mortality per km ----
   if(is.null(km_surv)){
-    km_surv <- 1 - sim_km_mort(
+    km_surv <- 1 - penPass::sim_km_mort(
       prop_lost_per_km = penPass::mort_per_km$prop_lost_per_km,
       n = 1,
       prob = penPass::mort_per_km$prob
@@ -70,7 +82,7 @@ run_one_year <- function(
   }
   
   # Annual flows by dam where applicable ----
-  annual_flows <- get_annual_flows(year = year)
+  annual_flows <- penPass::get_annual_flows(year = year)
   
   # Downstream passage at dams ----
   # . User-specified values ----
@@ -80,44 +92,58 @@ run_one_year <- function(
   downstream_passage <- unlist(downstream) 
   
   # . Default values ----
-  dam_survival <- get_dam_passage(year = year, flow = annual_flows)
+  dam_survival <- penPass::get_dam_passage(year = year, flow = annual_flows)
   
   # Replace any NA values with the flow-correlated survival values
   downstream_passage[is.na(downstream_passage)] <- dam_survival[is.na(downstream_passage)]
   # names(downstream_passage) <- NULL
   
   # Stillwater use module ----
-  p_stillwater <- get_stillwater_use(
+  p_stillwater <- penPass::get_stillwater_use(
     flow = annual_flows[names(downstream)=="west_enfield"])
   
   # Stocking data ----
-  stocking <- get_stocking_data(year = year)
+  stocking <- penPass::get_stocking_data(year = year)
   
   # Build watershed components ----
-  wpn <- make_WPN(stocking, prod, sat)
-  epn <- make_EPN(stocking, prod, sat)
-  matt <- make_Matt(stocking, prod, sat)
-  pisc <- make_PISC(stocking, prod, sat)
-  pn <- make_PN(stocking, prod, sat)
+  wpn <- penPass::make_WPN(stocking, prod, sat)
+  epn <- penPass::make_EPN(stocking, prod, sat)
+  matt <- penPass::make_Matt(stocking, prod, sat)
+  pisc <- penPass::make_PISC(stocking, prod, sat)
+  pn <- penPass::make_PN(stocking, prod, sat)
   
   # Downstream migration hazards ----
-  wpn_mat <- make_WPN_hazards(wpn, km_surv, downstream_passage) 
-  epn_mat <- make_EPN_hazards(epn, km_surv, downstream_passage) 
-  matt_mat <- make_Matt_hazards(matt, km_surv, downstream_passage) 
-  pisc_mat <- make_PISC_hazards(pisc, km_surv, downstream_passage) 
-  pn_mat <- make_PN_hazards(pn, km_surv, downstream_passage) 
+  wpn_mat <- penPass::make_WPN_hazards(wpn, km_surv, downstream_passage) 
+  epn_mat <- penPass::make_EPN_hazards(epn, km_surv, downstream_passage) 
+  matt_mat <- penPass::make_Matt_hazards(matt, km_surv, downstream_passage) 
+  pisc_mat <- penPass::make_PISC_hazards(pisc, km_surv, downstream_passage) 
+  pn_mat <- penPass::make_PN_hazards(pn, km_surv, downstream_passage) 
 
   # Downstream migration module ----
-  # Upper watershed
-  wpn_out <- run_downstream_migration(wpn_mat)
-  epn_out <- run_downstream_migration(epn_mat)
-  matt_out <- run_downstream_migration(matt_mat)
-  pisc_out <- run_downstream_migration(pisc_mat)
+  # . Tributaries ----
+  wpn_out <- penPass::run_downstream_migration(wpn_mat)
+  epn_out <- penPass::run_downstream_migration(epn_mat)
+  matt_out <- penPass::run_downstream_migration(matt_mat)
+  pisc_out <- penPass::run_downstream_migration(pisc_mat)
   
+  # . Mainstem ----
   # Mainstem Penobscot receives upper watershed
+  pn_mat$n_smolts[1] <- wpn_out$smolts_out[nrow(wpn_out)]
+  pn_mat$n_smolts[2] <- epn_out$smolts_out[nrow(epn_out)]
+  pn_mat$n_smolts[15] <- matt_out$smolts_out[nrow(matt_out)]
+  pn_mat$n_smolts[39] <- pisc_out$smolts_out[nrow(pisc_out)]
+
   
+  pn_splitted <- penPass::split_pn(wpn_mat, 
+                                   epn_mat, 
+                                   matt_mat, 
+                                   pisc_mat, 
+                                   pn_mat,
+                                   p_stillwater
+                                   )
   
-  pn_out <- run_downstream_migration(pn_mat)
+  pn_mat_s <- pn_splitted$pn_mat_s
+  pn_mat_m <- pn_splitted$pn_mat_m
   
   
   

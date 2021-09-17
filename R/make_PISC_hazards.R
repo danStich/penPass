@@ -4,7 +4,7 @@
 #' survival hazards for a given `year` in the Piscataquis River from 
 #' Stevens et al. (2019).
 #' 
-#' @param wpn A dataframe matching output of \code{link{make_PISC}}.
+#' @param pisc A dataframe matching output of \code{link{make_PISC}}.
 #' 
 #' @param km_surv Survival per kilometer for free-flowing reaches
 #' 
@@ -25,7 +25,7 @@ make_PISC_hazards <- function(pisc, km_surv, downstream_passage){
 
   pisc$hazard[grep("Dam", pisc$huc_collection_segment_or_damname)] <- downstream_passage[9:12]
 
-  pisc$harzad[is.na(pisc$hazard)] <- 1
+  pisc$hazard[is.na(pisc$hazard)] <- 1
     
   return(pisc)
   

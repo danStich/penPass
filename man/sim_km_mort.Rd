@@ -6,6 +6,13 @@
 \usage{
 sim_km_mort(prop_lost_per_km, n, prob)
 }
+\arguments{
+\item{prop_lost_per_km}{Proportion of fish lost per kilometer}
+
+\item{n}{Number of values to sample}
+
+\item{prob}{Sampling probabilities for cdf based on Stevens et al. (2019).}
+}
 \description{
 Function used to simulate mortality per kilometer
 from the empirical cumulative distribution function used by
@@ -28,4 +35,10 @@ morts <- sim_km_mort(
 surv <- 1e3 - (1e3 * exp(-morts)) 
 hist( surv, breaks = 40 )
 
+}
+\references{
+Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+stocking practices on an endangered Atlantic salmon (Salmo salar) 
+population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+and Aquatic Sciences 76:1795-1807.
 }

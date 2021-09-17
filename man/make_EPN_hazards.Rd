@@ -7,12 +7,12 @@
 make_EPN_hazards(epn, km_surv, downstream_passage)
 }
 \arguments{
+\item{epn}{A dataframe matching output of \code{link{make_EPN}}.}
+
 \item{km_surv}{Survival per kilometer for free-flowing reaches}
 
 \item{downstream_passage}{A vector of dam passage survival probabilities 
 matching the `downstream` argument in \code{\link{run_one_year}}}
-
-\item{wpn}{A dataframe matching output of \code{link{make_EPN}}.}
 }
 \description{
 Function used to create natural survival and dam passage 

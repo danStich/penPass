@@ -28,7 +28,7 @@ get_stillwater_use <- function(flow){
   
   flow_cms <- flow * 0.028316847
   
-  beta_draw <- rnorm(1, 
+  beta_draw <- stats::rnorm(1, 
                      mean = penPass::stillwater_pars[2,2], 
                      sd = penPass::stillwater_pars[2,3]
                      ) 
