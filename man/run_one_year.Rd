@@ -17,7 +17,7 @@ run_one_year(
 )
 }
 \arguments{
-\item{year}{Year used for simulation. Must be 1970 - 2020.}
+\item{year}{Year used for simulation. Must be 1970 - 2010.}
 
 \item{downstream}{Downstream dam passage survival rates for smolts}
 

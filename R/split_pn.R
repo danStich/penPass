@@ -59,33 +59,42 @@ split_pn <- function(wpn_mat,
   pn_mat_s$n_smolts[62:75] <- 0
   # Can't have mortality through the mainstem for these fish!
   pn_mat_s$hazard[62:75] <- 1  
-  pn_mat_s$n_smolts[91:125] <- 0
+  pn_mat_s$n_smolts[91:125] <- 0 # Fish below confluence, will add back
   
-  # Get counts of dams passed for confluences and assign a 1 to
-  # each dam in the migration route downstream
+  # Get dams in migration route (assign a 1 to each)
   pn_mat_s$n_dams <- 0
   pn_mat_s$n_dams[dams[!(dams %in% 62:75)]] <- 1
   
-  # Now, need to add up the dams passed by fish starting in 
-  # each collection unit or segment. Add up all the ones, but
-  # ignore any of them that are actually confluence dams
-  pn_mat_s$c_dams <- 0
-  pn_mat_s$c_dams <- cumsum(pn_mat_s$n_dams)
-  # pn_mat_s$c_dams[confs] <- pn_mat_s$c_dams[confs] + conf_dams
+  # Get confluence dams separately. Will iterate over these in 
+  # downstream migration
+  pn_mat_s$conf_dams <- 0
+  pn_mat_s$conf_dams[confs] <- conf_dams
 
   
+  # Mainstem fish assignment ----
   # Copy pn_mat to split it
   pn_mat_m <- pn_mat
   # Proportion of fish that use Stillwater Branch
   pn_mat_m$n_smolts[1:61] <- round(pn_mat$n_smolts[1:61] * (1 - p_stillwater), 0)
   # No fish in mainstem PUs
   pn_mat_m$n_smolts[76:90] <- 0
-  # Can't have mortality through the mainstem for these fish!
+  # Can't have mortality through the Stillwater Branch for these fish!
   pn_mat_m$hazard[76:90] <- 1  
   
+  # Get dams in migration route (assign a 1 to each)
+  pn_mat_m$n_dams <- 0
+  pn_mat_m$n_dams[dams[!(dams %in% 76:90)]] <- 1
+  
+  # Get confluence dams separately. Will iterate over these in 
+  # downstream migration
+  pn_mat_m$conf_dams <- 0
+  pn_mat_m$conf_dams[confs] <- conf_dams
+
+  # Return the Stillwater and mainstem migrants
   return(list(
     pn_mat_s = pn_mat_s, 
-    pn_mat_m = pn_mat_m))
+    pn_mat_m = pn_mat_m
+    ))
     
 }
 

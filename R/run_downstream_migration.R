@@ -18,21 +18,31 @@
 #' 
 run_downstream_migration <- function(mat){
   
+  # Replace NA values with zeros for number of smolts starting in 
+  # each collection unit or segment
   mat$n_smolts[is.na(mat$n_smolts)] <- 0
   
+  # Make "reach lengths" of 0 so we can ignore collections segments
+  # during downstream migration.
   mat$available_habitat_units_or_segment_length[
-    is.na(mat$available_habitat_units_or_segment_length)] <- 1
+    is.na(mat$available_habitat_units_or_segment_length)] <- 0
   
+  # Make container to hold number of smolts making it out
   mat$smolts_out <- mat$n_smolts
   
+  # Get mortality per km
   mat$mort <- 1 - mat$hazard
+
+  # Calculate whole-reach mortality based on reach km and 
+  mat$s_reach <- exp(-mat$mort[1:nrow(mat)] * mat$available_habitat_units_or_segment_length[1:nrow(mat)])
   
-  mat$smolts_out[1] <- mat$n_smolts[1] * 
-    exp(-mat$mort[1] * mat$available_habitat_units_or_segment_length[1])
+  mat$smolts_out <- mat$n_smolts
+  mat$smolts_out[1] <- mat$n_smolts[1] * dplyr::last(cumprod(mat$s_reach[1:nrow(mat)]))
   
   for(i in 2:nrow(mat)){
-    mat$smolts_out[i] <- mat$n_smolts[i] + mat$smolts_out[i - 1] * 
-      exp(-mat$mort[i] * mat$available_habitat_units_or_segment_length[i])
+
+  mat$smolts_out[i] <- mat$n_smolts[i] * dplyr::last(cumprod(mat$s_reach[i:nrow(mat)]))    
+    
   }
   
   return(mat)

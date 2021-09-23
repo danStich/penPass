@@ -266,7 +266,7 @@
 #' @description Number of Atlantic salmon smolts stocked in each of 22 sites
 #' by year.
 #' 
-#' @format A dataframe with 388 observations of 3 variables
+#' @format A dataframe with 440 observations of 3 variables
 #' \describe{
 #'   \code{Year } Year of stocking \cr \cr
 #'   \code{site_code } Site code corresponding to `stocking_site` in `distance_traveled`
@@ -471,3 +471,29 @@
 #' 
 "survival_ranks"
 
+#' @title Latent estuary survival coefficients for dams
+#' 
+#' @description Latent estuary survival coeffficients for number of 
+#' dams passed by fish based on Stich et al. (2015) as implemented
+#' by Stevens et al. (2019).
+#' 
+#' @format A dataframe with 8 observations of 4 variables
+#' \describe{
+#'   \code{n_dams } Number of dams passed \cr \cr
+#'   \code{n_dams_std } Standardized value for number of dams \cr \cr
+#'   \code{s_logit } Logit-scale estuary survival based on number of dams passed \cr \cr
+#'   \code{s_real } Real-scale estuary survival based on number of dams passed \cr \cr
+#' }
+#' 
+#' @source
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
+#' 
+#' Stich, DS, JF Kocik, GB Zydlewski, and JD Zydlewski. 2015. Linking behavior,
+#' physiology, and survival of Atlantic Salmon smolts during estuary 
+#' migration. Marine and Coastal Fisheries: Dynamics, Management, 
+#' and Ecosystem Science 7:68-86.
+#' 
+"latent_estuary"

@@ -5,7 +5,7 @@
 \alias{stocking_data}
 \title{Stocking data for Penobscot River watershed}
 \format{
-A dataframe with 388 observations of 3 variables
+A dataframe with 440 observations of 3 variables
 \describe{
   \code{Year } Year of stocking \cr \cr
   \code{site_code } Site code corresponding to `stocking_site` in `distance_traveled`

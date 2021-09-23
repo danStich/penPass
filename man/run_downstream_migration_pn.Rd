@@ -4,10 +4,12 @@
 \alias{run_downstream_migration_pn}
 \title{Run downstream migration module}
 \usage{
-run_downstream_migration_pn(mat)
+run_downstream_migration_pn(mat, year)
 }
 \arguments{
-\item{mat}{A dataframe matching \code{link{make_PN_hazard}}.}
+\item{mat}{A dataframe matching \code{link{make_PN_hazard}}}
+
+\item{year}{Year of simulation}
 }
 \description{
 Function used to run downstream migration for lower mainstem

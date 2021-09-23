@@ -5,7 +5,7 @@
 #' cumulative distribution function included in the \code{\link{mort_per_km}}
 #' data set.
 #' 
-#' @param year Year used for simulation. Must be 1970 - 2020.
+#' @param year Year used for simulation. Must be 1970 - 2010.
 #' 
 #' @param downstream Downstream dam passage survival rates for smolts
 #' 
@@ -133,7 +133,7 @@ run_one_year <- function(
   pn_mat$n_smolts[15] <- matt_out$smolts_out[nrow(matt_out)]
   pn_mat$n_smolts[39] <- pisc_out$smolts_out[nrow(pisc_out)]
 
-  
+  # Split into Stillwater and Mainstem migration groups
   pn_splitted <- penPass::split_pn(wpn_mat, 
                                    epn_mat, 
                                    matt_mat, 
@@ -145,7 +145,14 @@ run_one_year <- function(
   pn_mat_s <- pn_splitted$pn_mat_s
   pn_mat_m <- pn_splitted$pn_mat_m
   
+  # Run downstream migration module for each group
+  pn_out_s <- run_downstream_migration_pn(pn_mat_s, year = year)
+  pn_out_m <- run_downstream_migration_pn(pn_mat_m, year = year)
   
+  # Apply latent estuary mortality from dams
+  smolts_out <- round(sum(pn_out_s$smolts_out + pn_out_m$smolts_out), 0)
+  
+  return(smolts_out)
   
 }
 
