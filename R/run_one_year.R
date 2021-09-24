@@ -43,11 +43,11 @@ run_one_year <- function(
     mattaseunk = NA,
     west_enfield = NA,
     milford = NA,
-    great_works = 1,
+    great_works = NA,
     gilman_falls = NA,
     stillwater = NA,
     orono = NA,
-    veazie = 1,
+    veazie = NA,
     bangor_waterworks = 1
   ),
   km_surv = NULL,

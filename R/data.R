@@ -497,3 +497,25 @@
 #' and Ecosystem Science 7:68-86.
 #' 
 "latent_estuary"
+#'
+#' @title Stillwater split flows
+#' 
+#' @description Proportion of flow entering the Stillwater Branch
+#' under varying in-river flow measured at West Enfield Dam 
+#' (Stevens et al. 2019).
+#' 
+#' @format A dataframe with 30 observations of 3 variables
+#' \describe{
+#'   \code{total_flow } Flow (cfs) measured at West Enfield Dam \cr \cr
+#'   \code{stillwater_flow } Flow (cfs) entering Stillwater Branch \cr \cr
+#'   \code{s_logit } Proportion of flow entering Stillwater Branch \cr \cr
+#' }
+#' 
+#' @source
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
+#' 
+"stillwater_splits"
+
