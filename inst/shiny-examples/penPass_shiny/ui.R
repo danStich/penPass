@@ -1,6 +1,6 @@
 library(DT)
 
-# Define UI for app that draws a histogram ----
+# Define UI for app that runs penPass ----
 ui <- fluidPage(
   
   # App title ----

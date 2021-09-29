@@ -1,4 +1,4 @@
-# Define server logic required to draw a histogram ----
+# Define server logic required to run penPass and display result ----
 server <- function(input, output) {
 
   # Library loads ----
@@ -162,7 +162,7 @@ server <- function(input, output) {
                             labels = seq(0, 1000, 200),
                             limits = c(0, 1e6)
                             ) +
-         ylab("Number of smolts (thousands") +
+         ylab("Number of smolts (thousands)") +
          scale_x_continuous(breaks = seq(1970, 2020, 10),
                             labels = seq(1970, 2020, 10),
                             limits = c(1970, 2020)
