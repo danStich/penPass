@@ -52,26 +52,25 @@ get_annual_flows <- function(year = 2020){
     stillwater_prop <- 0
     
     if(annual_flows[14] < min(penPass::stillwater_splits$total_flow)){
-      stillwater_prop[14] <- min(penPass::stillwater_splits$prop_stillwater)
+      stillwater_prop <- min(penPass::stillwater_splits$prop_stillwater)
     }
     if(annual_flows[14] > max(penPass::stillwater_splits$total_flow)){
-      stillwater_prop[14] <- max(penPass::stillwater_splits$prop_stillwater)
+      stillwater_prop <- max(penPass::stillwater_splits$prop_stillwater)
     }
     
     if(annual_flows[14] >= min(penPass::stillwater_splits$total_flow) & 
        annual_flows[14] <= min(penPass::stillwater_splits$total_flow)){
       
-      stillwater_prop[14] <- penPass::stillwater_splits$prop_stillwater[
+      stillwater_prop <- penPass::stillwater_splits$prop_stillwater[
         penPass::stillwater_splits$total_flow == annual_flows[14]
       ]
       
     }
     
-    
     annual_flows[15:16] <- round(
       annual_flows[15:16] * (1 - stillwater_prop), -1.5)
     
-    annual_flows[17:19] <- round(annual_flows[15:16] * stillwater_prop, -1.5)
+    annual_flows[17:19] <- round(annual_flows[17:19] * stillwater_prop, -1.5)
     
   return(annual_flows)
   

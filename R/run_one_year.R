@@ -17,6 +17,11 @@
 #' @param sat Habitat saturation for wild fish as the proportion of 
 #' habitat filled
 #' 
+#' @param p_stillwater Probability of smolts using Stillwater Branch 
+#' Penobscot River for downstream migration. By default sampled from
+#' \code{\link{stillwater_splits}} based on simulated value of flow
+#' at West Enfield Dam.
+#' 
 #' @references 
 #' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
 #' stocking practices on an endangered Atlantic salmon (Salmo salar) 
@@ -62,7 +67,8 @@ run_one_year <- function(
     EPN_sat = 0, 
     Matt_sat = 0, 
     PISC_sat = 0,
-    PN_sat = 0)
+    PN_sat = 0),
+  p_stillwater = NA
   
 ){
   
@@ -99,8 +105,10 @@ run_one_year <- function(
   # names(downstream_passage) <- NULL
   
   # Stillwater use module ----
+  if(is.na(p_stillwater)){
   p_stillwater <- penPass::get_stillwater_use(
     flow = annual_flows[names(downstream)=="west_enfield"])
+  }
   
   # Stocking data ----
   stocking <- penPass::get_stocking_data(year = year)

@@ -9,11 +9,12 @@ run_one_year(
   downstream = list(seeboomook = NA, ripogenus = NA, north_twin = NA, quakish = NA,
     dolby = NA, east_millinocket = NA, medway = NA, matagamon = 1, guilford = NA,
     moosehead = NA, browns_mills = NA, howland = NA, mattaseunk = NA, west_enfield = NA,
-    milford = NA, great_works = 1, gilman_falls = NA, stillwater = NA, orono = NA, veazie
-    = 1, bangor_waterworks = 1),
+    milford = NA, great_works = NA, gilman_falls = NA, stillwater = NA, orono = NA,
+    veazie = NA, bangor_waterworks = 1),
   km_surv = NULL,
   prod = c(WPN_prod = 3, EPN_prod = 3, Matt_prod = 3, PISC_prod = 3, PN_prod = 3),
-  sat = c(WPN_sat = 0, EPN_sat = 0, Matt_sat = 0, PISC_sat = 0, PN_sat = 0)
+  sat = c(WPN_sat = 0, EPN_sat = 0, Matt_sat = 0, PISC_sat = 0, PN_sat = 0),
+  p_stillwater = NA
 )
 }
 \arguments{
@@ -28,6 +29,11 @@ wetted habitat area (Stevens et al. 2019).}
 
 \item{sat}{Habitat saturation for wild fish as the proportion of 
 habitat filled}
+
+\item{p_stillwater}{Probability of smolts using Stillwater Branch 
+Penobscot River for downstream migration. By default sampled from
+\code{\link{stillwater_splits}} based on simulated value of flow
+at West Enfield Dam.}
 }
 \description{
 Function used to simulate downstream migration in a single
