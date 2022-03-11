@@ -4,7 +4,7 @@ An R package for hosting code and data, and running the Atlantic salmon PenPass 
 
 ## Installation
 
-The development version of `dia` can be installed with  [`devtools`](https://www.rstudio.com/products/rpackages/devtools/) in R using the repository url:
+The development version of `penPass` can be installed with  [`devtools`](https://www.rstudio.com/products/rpackages/devtools/) in R using the repository url:
 
 `devtools::install_github("danStich/penPass")`
 
@@ -23,7 +23,7 @@ To install `penPass`, you will need to have `devtools` installed ahead of time i
 `tests/` Includes package tests for default parameter accuracy conducted on package build
 
 ## Getting started
-There are two primary user-facing functions within the `dia` package. The `run_one_year()` function can be called within an Rscript to run the penPass model using default or user-defined inputs for a single year. The `penPass_shiny()`function launches a graphical user interface (GUI) that opens in a web browser and is written with the `shiny` package. The former provides functionality for large-scale simulation studies in R whereas the latter provides and intuitive interface for running smaller numbers of management scenarios.
+There are two primary user-facing functions within the `penPass` package. The `run_one_year()` function can be called within an Rscript to run the penPass model using default or user-defined inputs for a single year. The `penPass_shiny()`function launches a graphical user interface (GUI) that opens in a web browser and is written with the `shiny` package. The former provides functionality for large-scale simulation studies in R whereas the latter provides and intuitive interface for running smaller numbers of management scenarios.
 
 ### `run_one_year()`
 The `run_one_year()` function provides the primary user-facing function for the `penPass`package. The purpose of the function is to run the PenPass analysis for a selected year (1970-2020). The output of this function is a numerical vector containing number of smolts reaching the ocean. All default argument values (model inputs) are based on the most-recent version of the NOAA PenPass Excel-based model (Stevens et al. 2019).
@@ -33,7 +33,7 @@ The `run_one_year()` function allows user to specify year, downstream passage su
 You can find the help file for the `run_one_year()` function in R by running:`?penPass::run_one_year`. This file contains all accepted user arguments, explanations of what they mean and what are default values, and examples of how to use the `run_one_year()` function. Examples are shown at the bottom of this page.
 
 ### `penPass_shiny()`
-The `penPass_shiny()` function provides and intuitive user interface for running the penPass model. Though more limited in flexibility that `run_one_year()`, the simplified interface should allow full exploration of management scenarios. The primary difference is that `penPass_shiny()` does not allow the user to input custom distributions or values for some input parameters implemented in the `run_dia()` function. 
+The `penPass_shiny()` function provides and intuitive user interface for running the penPass model. Though more limited in flexibility that `run_one_year()`, the simplified interface should allow full exploration of management scenarios. The primary difference is that `penPass_shiny()` does not allow the user to input custom distributions or values for some input parameters implemented in the `run_one_year()` function. 
 
 Currently, the shiny interface for the penPass model can only be called directly from R or Rstudio by running the following lines of code:
 ```
@@ -49,7 +49,7 @@ This will open the user-interface in a local instance of the default web browser
 An example of a single simulation using `run_one_year()` is demonstrated below, using the default values based on Stevens et al. (2019).
 
 ```
-library(dia)
+library(penPass)
 run_one_year(
   year = 2017,
   downstream = list(
