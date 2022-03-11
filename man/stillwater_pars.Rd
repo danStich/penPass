@@ -15,7 +15,9 @@ A dataframe with 2 observations of 5 variables
 }
 }
 \source{
-Stich et al. (2014)
+Stich, DS, M Bailey, and JD Zydlewski. 2014. Survival of 
+Atlantic Salmon Salmo salar smolts through a hydropower 
+complex. Journal of Fish Biology 85:1074-1096.
 }
 \usage{
 stillwater_pars

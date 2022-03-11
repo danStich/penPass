@@ -14,7 +14,7 @@
 #' corresponding to dams in rows in \code{\link{flow_ratios}} and
 #' the `upstream` argument of \code{\link{run_one_year}}.
 #' 
-#' @return A vector with dam passage rates 
+#' @return Numeric vector with dam passage rates 
 #' 
 #' @references
 #' Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
@@ -39,9 +39,17 @@
 #' stocking practices on an endangered Atlantic salmon (Salmo salar) 
 #' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
 #' and Aquatic Sciences 76:1795-1807.
+#' 
+#' @seealso get_annual_flows
+#' 
+#' @examples 
+#' # Get dam passage for 2012 based on sampled flows
+#' flows <- get_annual_flows(year = 2012)
+#' get_dam_passage(year = 2012, flow = flows)
+#' 
 #' @export
 #' 
-get_dam_passage <- function(year = 2020, flow){
+get_dam_passage <- function(year, flow){
   
     # Extract correlated flow-contingent survival rates
     dam_survival <- c(

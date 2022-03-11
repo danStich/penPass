@@ -14,7 +14,28 @@ A dataframe with 857 observations of 4 variables
 }
 }
 \source{
-Nieland et al. (2013, 2015)
+Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
+estimates at mainstem hydroelectric projects on the Penobscot River. 
+Phase 3 Final Report. Alden Research Laboratory, Inc., Holden, MA.
+
+Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+Hole, MA.
+
+Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+Maine. ICES Journal of Marine Science 72:2423–2437. 
+
+Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+Department of Commerce, Northeast Fisheries Science Center Reference Document 
+13-09, Woods Hole, MA.
+
+Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+stocking practices on an endangered Atlantic salmon (Salmo salar) 
+population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+and Aquatic Sciences 76:1795-1807.
 }
 \usage{
 downstream_brownsmills

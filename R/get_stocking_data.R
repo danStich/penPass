@@ -15,6 +15,7 @@
 #' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
 #' and Aquatic Sciences 76:1795-1807.
 #' 
+#' 
 #' @export
 #' 
 get_stocking_data <- function(year){

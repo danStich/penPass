@@ -4,18 +4,25 @@
 \alias{get_annual_flows}
 \title{Get annual flows}
 \usage{
-get_annual_flows(year = 2020)
+get_annual_flows(year)
 }
 \arguments{
 \item{year}{Year of simulation}
 }
 \value{
-A vector with discharge estimates drawn from a cdf
+A vector with discharge estimates drawn from a cdf for each
+dam based on gage stations used by Stevens et al. (2019). Not all
+dams have or need flow estimates within the PenPass model (`NA`).
 }
 \description{
 Simulate correlated annual flows at USGS gage stations 
 in the Penobscot River watershed based on cumulative probability 
 distribution used by Stevens et al. (2019).
+}
+\examples{
+# Get annual flows by dam for 2012
+get_annual_flows(year = 2012)
+
 }
 \references{
 Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 

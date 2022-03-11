@@ -6,16 +6,23 @@
 #' 
 #' @param year Year of simulation
 #' 
-#' @return A vector with discharge estimates drawn from a cdf 
+#' @return A vector with discharge estimates drawn from a cdf for each
+#' dam based on gage stations used by Stevens et al. (2019). Not all
+#' dams have or need flow estimates within the PenPass model (`NA`). 
 #' 
 #' @references
 #' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
 #' stocking practices on an endangered Atlantic salmon (Salmo salar) 
 #' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
 #' and Aquatic Sciences 76:1795-1807.
+#' 
+#' @examples
+#' # Get annual flows by dam for 2012
+#' get_annual_flows(year = 2012)
+#' 
 #' @export
 #' 
-get_annual_flows <- function(year = 2020){
+get_annual_flows <- function(year){
   
     # Flow for year
     flows <- penPass::flow_ranks[penPass::flow_ranks$Year == year, ]

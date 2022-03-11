@@ -17,6 +17,15 @@ Get flow-conditional probability of fish using the Stillwater
 Branch during downstream migration around Marsh Island in the lower Penobscot
 River.
 }
+\examples{
+# Simulate probability of using Stillwater Branch
+# based on randomly drawn flow at West Enfield Dam
+flow_cfs <- rep(seq(0, 60000, 100), 5)
+flow_cms <- flow_cfs * 0.028316847
+use <- get_stillwater_use(flow_cfs)
+plot(flow_cms, use)
+
+}
 \references{
 Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
 in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
@@ -31,4 +40,11 @@ Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and
 stocking practices on an endangered Atlantic salmon (Salmo salar) 
 population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
 and Aquatic Sciences 76:1795-1807.
+
+Stich, DS, M Bailey, and JD Zydlewski. 2014. Survival of 
+Atlantic Salmon Salmo salar smolts through a hydropower 
+complex. Journal of Fish Biology 85:1074-1096.
+}
+\seealso{
+stillwater_pars
 }

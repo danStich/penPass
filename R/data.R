@@ -12,7 +12,29 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source
+#' Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
+#' estimates at mainstem hydroelectric projects on the Penobscot River. 
+#' Phase 3 Final Report. Alden Research Laboratory, Inc., Holden, MA.
+#' 
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
+#' 
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
 #' 
 "downstream_brownsmills"
 
@@ -30,7 +52,24 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source
+#' Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
+#' estimates at mainstem hydroelectric projects on the Penobscot River. 
+#' Phase 3 Final Report. Alden Research Laboratory, Inc., Holden, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
+#' 
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
 #' 
 "downstream_greatworks"
 
@@ -48,7 +87,24 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source
+#' Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
+#' estimates at mainstem hydroelectric projects on the Penobscot River. 
+#' Phase 3 Final Report. Alden Research Laboratory, Inc., Holden, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
+#' 
+#' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
+#' stocking practices on an endangered Atlantic salmon (Salmo salar) 
+#' population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
+#' and Aquatic Sciences 76:1795-1807.
 #' 
 "downstream_howland"
 
@@ -66,7 +122,19 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source
+#' Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
+#' estimates at mainstem hydroelectric projects on the Penobscot River. 
+#' Phase 3 Final Report. Alden Research Laboratory, Inc., Holden, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_mattaceunk"
 
@@ -84,7 +152,19 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source
+#' Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
+#' estimates at mainstem hydroelectric projects on the Penobscot River. 
+#' Phase 3 Final Report. Alden Research Laboratory, Inc., Holden, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_medway"
 
@@ -103,7 +183,11 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2020)
+#' @source
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
 #' 
 "downstream_milford"
 
@@ -140,7 +224,11 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2020)
+#' @source
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
 #' 
 "downstream_orono"
 
@@ -159,7 +247,11 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2020)
+#' @source
+#' Nieland JL, Sheehan TF. 2020. Quantifying the Effects of Dams on Atlantic Salmon
+#' in the Penobscot River Watershed, with a Focus on Weldon Dam. US Department of 
+#' Commerce, Northeast Fisheries Science Center Reference Document 19-16, Woods 
+#' Hole, MA.
 #' 
 "downstream_stillwater"
 
@@ -177,7 +269,19 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source
+#' Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
+#' estimates at mainstem hydroelectric projects on the Penobscot River. 
+#' Phase 3 Final Report. Alden Research Laboratory, Inc., Holden, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_veazie"
 
@@ -195,7 +299,19 @@
 #'   \code{smolt_surv_prob } Smolt survival probability given flow \cr \cr
 #' }
 #' 
-#' @source Nieland et al. (2013, 2015)
+#' @source
+#' Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
+#' estimates at mainstem hydroelectric projects on the Penobscot River. 
+#' Phase 3 Final Report. Alden Research Laboratory, Inc., Holden, MA.
+#' 
+#' Nieland JL, Sheehan TF, Saunders R. 2015. Assessing demographic effects of dams
+#' on diadromous fish: a case study for Atlantic salmon in the Penobscot River, 
+#' Maine. ICES Journal of Marine Science 72:2423–2437. 
+#' 
+#' Nieland JL, Sheehan TF, Saunders R, Murphy JS, Trinko Lake TR, Stevens JR. 2013. 
+#' Dam Impact Analysis model for Atlantic salmon in the Penobscot River, Maine. US 
+#' Department of Commerce, Northeast Fisheries Science Center Reference Document 
+#' 13-09, Woods Hole, MA.
 #' 
 "downstream_westenfield"
 
@@ -257,7 +373,9 @@
 #' }
 #' 
 #' @source
-#' Stich et al. (2014)
+#' Stich, DS, M Bailey, and JD Zydlewski. 2014. Survival of 
+#' Atlantic Salmon Salmo salar smolts through a hydropower 
+#' complex. Journal of Fish Biology 85:1074-1096.
 #' 
 "stillwater_pars"
 

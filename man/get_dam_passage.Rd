@@ -4,7 +4,7 @@
 \alias{get_dam_passage}
 \title{Get dam-specific survival rates}
 \usage{
-get_dam_passage(year = 2020, flow)
+get_dam_passage(year, flow)
 }
 \arguments{
 \item{year}{Year of simulation}
@@ -14,7 +14,7 @@ corresponding to dams in rows in \code{\link{flow_ratios}} and
 the `upstream` argument of \code{\link{run_one_year}}.}
 }
 \value{
-A vector with dam passage rates
+Numeric vector with dam passage rates
 }
 \description{
 Get correlated dam-specific downstream survival rates for 
@@ -24,6 +24,12 @@ based on triangular distributions or fixed rates used in Stevens et al.
 Nieland et al. (2013, 2015) and Nieland and Sheehan (2020), sampled using 
 `EnvStats::rtri()`, or fixed to 1 for other dams based on 
 Stevens et al. (2019).
+}
+\examples{
+# Get dam passage for 2012 based on sampled flows
+flows <- get_annual_flows(year = 2012)
+get_dam_passage(year = 2012, flow = flows)
+
 }
 \references{
 Amaral S, Fay C, Hecker G, Perkins N. 2012. Atlantic salmon survival 
@@ -48,4 +54,7 @@ Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and
 stocking practices on an endangered Atlantic salmon (Salmo salar) 
 population in the Penobscot River, Maine, USA. Canadian Journal of Fisheries
 and Aquatic Sciences 76:1795-1807.
+}
+\seealso{
+get_annual_flows
 }
