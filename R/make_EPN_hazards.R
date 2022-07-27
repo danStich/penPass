@@ -21,13 +21,23 @@
 #' 
 make_EPN_hazards <- function(epn, km_surv, downstream_passage){
   
+  epn$hazard <- NA
   
+  if(is.null(km_surv)){
+      epn$hazard[c(grep("1.2", epn$huc_collection_segment_or_damname))] <- 
+        1 - penPass::sim_km_mort(prop_lost_per_km = penPass::mort_per_km$prop_lost_per_km,
+        n = length(epn$hazard[grep("1.2", epn$huc_collection_segment_or_damname)]),
+        prob = penPass::mort_per_km$prob)
+  } else {
+
   epn$hazard[grep("1.2", epn$huc_collection_segment_or_damname)] <- km_surv
 
-  epn$hazard[grep("Dam", epn$huc_collection_segment_or_damname)] <- downstream_passage[8]
-  
-  epn$hazard[is.na(epn$hazard)] <- 1
+  }
 
+  epn$hazard[grep("Dam", epn$huc_collection_segment_or_damname)] <- downstream_passage[8]
+
+  epn$hazard[is.na(epn$hazard)] <- 1
+  
   return(epn)
   
 }

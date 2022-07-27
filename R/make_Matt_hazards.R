@@ -21,11 +21,21 @@
 #' 
 make_Matt_hazards <- function(matt, km_surv, downstream_passage){
   
+  matt$hazard <- NA
+  
+  if(is.null(km_surv)){
+      matt$hazard[c(grep("1.3", matt$huc_collection_segment_or_damname))] <- 
+        1 - penPass::sim_km_mort(prop_lost_per_km = penPass::mort_per_km$prop_lost_per_km,
+        n = length(matt$hazard[grep("1.3", matt$huc_collection_segment_or_damname)]),
+        prob = penPass::mort_per_km$prob)
+  } else {
 
   matt$hazard[grep("1.3", matt$huc_collection_segment_or_damname)] <- km_surv
-  
-  matt$hazard[is.na(matt$hazard)] <- 1
 
+  }
+
+  matt$hazard[is.na(matt$hazard)] <- 1
+  
   return(matt)
   
 }

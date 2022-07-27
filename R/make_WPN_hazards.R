@@ -21,9 +21,20 @@
 #' 
 make_WPN_hazards <- function(wpn, km_surv, downstream_passage){
   
+  wpn$hazard <- NA
+  
+  if(is.null(km_surv)){
+      wpn$hazard[grep("1.1", wpn$huc_collection_segment_or_damname)] <- 
+        1 - penPass::sim_km_mort(prop_lost_per_km = penPass::mort_per_km$prop_lost_per_km,
+          n = length(wpn$hazard[grep("1.1", wpn$huc_collection_segment_or_damname)]),
+          prob = penPass::mort_per_km$prob)
+  } else {
+
   wpn$hazard[grep("1.1", wpn$huc_collection_segment_or_damname)] <- km_surv
 
-  wpn$hazard[grep("Dam", wpn$huc_collection_segment_or_damname)] <- downstream_passage[1:7]
+  }
+  
+  wpn$hazard[grep("Dam", wpn$huc_collection_segment_or_damname)] <- downstream_passage[c(1:7)]
 
   wpn$hazard[is.na(wpn$hazard)] <- 1
   

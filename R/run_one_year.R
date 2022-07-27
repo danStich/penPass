@@ -79,13 +79,13 @@ run_one_year <- function(
   }
   
   # Natural mortality per km ----
-  if(is.null(km_surv)){
-    km_surv <- 1 - penPass::sim_km_mort(
-      prop_lost_per_km = penPass::mort_per_km$prop_lost_per_km,
-      n = 1,
-      prob = penPass::mort_per_km$prob
-    )
-  }
+  # if(is.null(km_surv)){
+  #   km_surv <- 1 - penPass::sim_km_mort(
+  #     prop_lost_per_km = penPass::mort_per_km$prop_lost_per_km,
+  #     n = 1,
+  #     prob = penPass::mort_per_km$prob
+  #   )
+  # }
   
   # Annual flows by dam where applicable ----
   annual_flows <- penPass::get_annual_flows(year = year)
