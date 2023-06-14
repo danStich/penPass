@@ -68,8 +68,8 @@ run_one_year <- function(
     Matt_sat = 0, 
     PISC_sat = 0,
     PN_sat = 0),
-  p_stillwater = NA
-  
+  p_stillwater = NA,
+  basin_specific_output = FALSE
 ){
   
   # Error handling for argument values ----
@@ -134,33 +134,84 @@ run_one_year <- function(
   matt_out <- penPass::run_downstream_migration(matt_mat)
   pisc_out <- penPass::run_downstream_migration(pisc_mat)
   
-  # . Mainstem ----
+  # . Mainstem routines by basin ----
   # Mainstem Penobscot receives upper watershed
-  pn_mat$n_smolts[1] <- wpn_out$smolts_out[nrow(wpn_out)]
-  pn_mat$n_smolts[2] <- epn_out$smolts_out[nrow(epn_out)]
-  pn_mat$n_smolts[15] <- matt_out$smolts_out[nrow(matt_out)]
-  pn_mat$n_smolts[39] <- pisc_out$smolts_out[nrow(pisc_out)]
+  river_mat_wpn <- pn_mat
+  river_mat_wpn$n_smolts[1] <- wpn_out$smolts_out[nrow(wpn_out)]  
+  river_mat_wpn$n_smolts[2:nrow(river_mat_wpn)] <- 0
+  
+  river_mat_epn <- pn_mat
+  river_mat_epn$n_smolts[2] <- epn_out$smolts_out[nrow(epn_out)]  
+  river_mat_epn$n_smolts[c(1, 3:nrow(river_mat_epn))] <- 0
+  
+  river_mat_matt <- pn_mat
+  river_mat_matt$n_smolts[2] <- matt_out$smolts_out[nrow(matt_out)]  
+  river_mat_matt$n_smolts[c(1:14, 16:nrow(river_mat_matt))] <- 0
+  
+  river_mat_pisc <- pn_mat
+  river_mat_pisc$n_smolts[2] <- pisc_out$smolts_out[nrow(pisc_out)]  
+  river_mat_pisc$n_smolts[c(1:38, 40:nrow(river_mat_pisc))] <- 0  
+  
+  # Split into Stillwater and Mainstem migration groups by basin
+  pn_splitted_wpn <- penPass::split_pn(wpn_mat, river_mat_wpn, p_stillwater)
+  pn_mat_wpn_s <- pn_splitted_wpn$river_mat_s
+  pn_mat_wpn_m <- pn_splitted_wpn$river_mat_m
+  
+  pn_splitted_epn <- penPass::split_pn(epn_mat, river_mat_epn, p_stillwater)
+  pn_mat_epn_s <- pn_splitted_epn$river_mat_s
+  pn_mat_epn_m <- pn_splitted_epn$river_mat_m 
+  
+  pn_splitted_matt <- penPass::split_pn(matt_mat, river_mat_matt, p_stillwater)
+  pn_mat_matt_s <- pn_splitted_matt$river_mat_s
+  pn_mat_matt_m <- pn_splitted_matt$river_mat_m    
+  
+  pn_splitted_pisc <- penPass::split_pn(pisc_mat, river_mat_pisc, p_stillwater)
+  pn_mat_pisc_s <- pn_splitted_pisc$river_mat_s
+  pn_mat_pisc_m <- pn_splitted_pisc$river_mat_m   
+  
+  pn_splitted_pn <- penPass::split_pn(pn_mat, pn_mat, p_stillwater)
+  pn_mat_pn_s <- pn_splitted_pn$river_mat_s
+  pn_mat_pn_m <- pn_splitted_pn$river_mat_m     
+  
+  
+  # Run downstream migration module for each migratory group from each basin
+  wpn_out_s <- run_downstream_migration_pn(pn_mat_wpn_s, year = year)
+  wpn_out_m <- run_downstream_migration_pn(pn_mat_wpn_m, year = year)  
+  
+  epn_out_s <- run_downstream_migration_pn(pn_mat_epn_s, year = year)
+  epn_out_m <- run_downstream_migration_pn(pn_mat_epn_m, year = year) 
+  
+  matt_out_s <- run_downstream_migration_pn(pn_mat_matt_s, year = year)
+  matt_out_m <- run_downstream_migration_pn(pn_mat_matt_m, year = year)   
 
-  # Split into Stillwater and Mainstem migration groups
-  pn_splitted <- penPass::split_pn(wpn_mat, 
-                                   epn_mat, 
-                                   matt_mat, 
-                                   pisc_mat, 
-                                   pn_mat,
-                                   p_stillwater
-                                   )
+  pisc_out_s <- run_downstream_migration_pn(pn_mat_pisc_s, year = year)
+  pisc_out_m <- run_downstream_migration_pn(pn_mat_pisc_m, year = year)   
+    
+  pn_out_s <- run_downstream_migration_pn(pn_mat_pn_s, year = year)
+  pn_out_m <- run_downstream_migration_pn(pn_mat_pn_m, year = year)
   
-  pn_mat_s <- pn_splitted$pn_mat_s
-  pn_mat_m <- pn_splitted$pn_mat_m
   
-  # Run downstream migration module for each group
-  pn_out_s <- run_downstream_migration_pn(pn_mat_s, year = year)
-  pn_out_m <- run_downstream_migration_pn(pn_mat_m, year = year)
+  # Add the number of outmigrants from each group in each basin
+  wpn_smolts_out <- round(sum(wpn_out_s$smolts_out + wpn_out_m$smolts_out), 0)
+  epn_smolts_out <- round(sum(epn_out_s$smolts_out + epn_out_m$smolts_out), 0)
+  matt_smolts_out <- round(sum(matt_out_s$smolts_out + matt_out_m$smolts_out), 0)
+  pisc_smolts_out <- round(sum(pisc_out_s$smolts_out + pisc_out_m$smolts_out), 0)
+  pn_smolts_out <- round(sum(pn_out_s$smolts_out + pn_out_m$smolts_out), 0)
   
-  # Apply latent estuary mortality from dams
-  smolts_out <- round(sum(pn_out_s$smolts_out + pn_out_m$smolts_out), 0)
-  
-  return(smolts_out)
-  
+  if(basin_specific_output == TRUE){
+  return(data.frame(
+    year = year,
+    wpn = wpn_smolts_out,
+    epn = epn_smolts_out,
+    matt = matt_smolts_out,
+    pisc = pisc_smolts_out,
+    pn = pn_smolts_out))
+  } else {
+    return(smolts_out = wpn_smolts_out +
+           epn_smolts_out +
+           matt_smolts_out +
+           pisc_smolts_out + 
+           pn_smolts_out)
+  }
 }
 
