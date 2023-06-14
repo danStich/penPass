@@ -31,7 +31,7 @@ ui <- fluidPage(
          # actionButton("go",label = "Run Model"),
          br(),
          selectInput(inputId = "year", label = "Select year(s) below",
-                      seq(1970, 2020, 1), multiple = TRUE
+                      seq(1970, 2022, 1), multiple = TRUE
                       ),
          br(),
          actionButton("go",label = "Run Model")

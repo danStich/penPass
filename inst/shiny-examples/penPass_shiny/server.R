@@ -163,9 +163,9 @@ server <- function(input, output) {
                             limits = c(0, 1e6)
                             ) +
          ylab("Number of smolts (thousands)") +
-         scale_x_continuous(breaks = seq(1970, 2020, 10),
-                            labels = seq(1970, 2020, 10),
-                            limits = c(1970, 2020)
+         scale_x_continuous(breaks = seq(1970, 2022, 10),
+                            labels = seq(1970, 2022, 10),
+                            limits = c(1970, 2022)
                             ) +
          theme(
            axis.title.x = element_text(vjust = -1, size = 12),
