@@ -22,6 +22,11 @@
 #' \code{\link{stillwater_splits}} based on simulated value of flow
 #' at West Enfield Dam.
 #' 
+#' @param basin_specific_output Logical indicating whether the result 
+#' should be returned for the entire watershed (FALSE, default) or for
+#' specific basins (TRUE). If FALSE, then a vector of length one is returned,
+#' if TRUE, then a dataframe is returned. 
+#' 
 #' @references 
 #' Stevens, JR, JF Kocik, and TF Sheehan. 2019. Modeling the impacts of dams and 
 #' stocking practices on an endangered Atlantic salmon (Salmo salar) 
